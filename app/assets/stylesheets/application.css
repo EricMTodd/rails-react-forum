@@ -2,9 +2,38 @@
 @media (min-width: 600px) {
   * {
     font-family: 'fira sans', arial, sans-serif;
+    color: white;
   }
 
   body {
     margin: 0 auto;
+  }
+
+  footer {
+    background-color: black;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  main {
+    background-color: rgba(50, 50, 50, 1);
+    height: calc(100vh - 75px);
+    padding-left: calc(33.333% / 2);
+    padding-right: calc(33.333% / 2);
+  }
+
+  nav {
+    background-color: black;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
