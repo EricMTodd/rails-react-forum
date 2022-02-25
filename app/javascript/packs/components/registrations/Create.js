@@ -1,14 +1,30 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Create = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('handleSubmit')
+    axios.post('http://localhost:3000/api/signup', {
+      user: {
+        name: name,
+        email: email,
+        password: password,
+        password_confirmation: passwordConfirmation
+      }
+    })
+    .then(response => {
+      console.log(response)
+      navigate('/')
+    })
+    .catch(error => console.log(error))
   }
 
   return(
