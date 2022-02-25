@@ -9,6 +9,10 @@
     margin: 0 auto;
   }
 
+  button, input, textarea {
+    color: black;
+  }
+
   footer {
     background-color: black;
     height: 25px;
