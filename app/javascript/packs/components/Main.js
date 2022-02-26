@@ -1,7 +1,8 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Index as PostsIndex } from './posts/Index'
-import { Create as SignUp } from './registrations/Create'
+import SignUp from './registrations/SignUp'
+import Login from './sessions/Login'
 
 const Main = (props) => {
   const {
@@ -13,6 +14,7 @@ const Main = (props) => {
       <Routes>
         <Route path='/' element={<PostsIndex />} />
         <Route path='/signup' element={<SignUp handleLogin={handleLogin} />} />
+        <Route path='/login' element={<Login handleLogin={handleLogin} />} />
       </Routes>
     </main>
   )

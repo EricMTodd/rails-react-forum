@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'static#index'
   post 'api/signup', to: 'registrations#create'
-  get 'api/logged_in', to: 'sessions#logged_in'
+  post 'api/login', to: 'sessions#login'
   delete 'api/logout', to: 'sessions#logout'
+  get 'api/logged_in', to: 'sessions#logged_in'
 
   get '*path', to: 'static#index'
 end

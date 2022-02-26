@@ -1,4 +1,23 @@
 class SessionsController < ApplicationController
+  def login
+    user = User.find_by(email: params[:email])
+
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      render json: {
+        message: 'Successfully logged in.',
+        loggedIn: true,
+        user: user
+      }
+    else
+      render json: {
+        message: 'Failed to log in!',
+        loggedIn: false,
+        user: {}
+      }
+    end
+  end
+
   def logout
     reset_session
     render json: {

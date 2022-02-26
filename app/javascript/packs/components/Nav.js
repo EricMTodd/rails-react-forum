@@ -28,7 +28,7 @@ const Nav = (props) => {
         <Link to='/'>Home</Link>
       </div>
       <div id='session-links'>
-        <Link to='#'>Log in</Link>
+        <Link to='/login'>Log in</Link>
         <Link to='/signup'>Sign up</Link>
       </div>
     </nav>
