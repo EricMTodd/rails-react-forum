@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Create = () => {
+const Create = (props) => {
+  const {
+    handleLogin
+  } = props
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -22,6 +25,7 @@ const Create = () => {
     })
     .then(response => {
       console.log(response)
+      handleLogin(response.data)
       navigate('/')
     })
     .catch(error => console.log(error))

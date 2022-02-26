@@ -37,7 +37,12 @@
     height: 50px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  nav > * > * {
+    margin-left: 15px;
   }
 }
