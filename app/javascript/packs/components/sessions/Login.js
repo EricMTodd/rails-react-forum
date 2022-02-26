@@ -12,13 +12,11 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('handleSubmit')
     axios.post('http://localhost:3000/api/login', {
       email: email,
       password: password
     })
     .then(response => {
-      console.log(response)
       handleLogin(response.data)
       navigate('/')
     })

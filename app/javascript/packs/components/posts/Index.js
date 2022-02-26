@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-const Index = () => {
+const Index = (props) => {
+  const {
+    loggedIn
+  } = props
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/posts')
+    .then(response => {
+      setPosts(response.data.posts)
+    })
+    .catch(error => console.log(error))
+  }, [])
+
+  if (loggedIn) {
+    return(
+      <div id='posts-index'>
+        <h1>Posts</h1>
+        <Link to='/posts/new'>New post</Link>
+        <ul>
+          {posts.map(post => <li key={post.id}><Link to={`post/${post.id}`}>{post.title}</Link></li>)}
+        </ul>
+      </div>
+    )
+  }
+
   return(
     <div id='posts-index'>
       <h1>Posts</h1>
+      <ul>
+        {posts.map(post => <li key={post.id}><Link to={`post/${post.id}`}>{post.title}</Link></li>)}
+      </ul>
     </div>
   )
 }
