@@ -10,9 +10,20 @@ class PostsController < ApplicationController
   def show
     post = Post.find_by(id: params[:id])
 
-    render json: {
-      post: post
-    }
+    if post
+      post_creator = User.find_by(id: post.user_id)
+      render json: {
+        message: 'Successfully retrieved post.',
+        post: post,
+        post_creator: post_creator 
+      }
+    else
+      render json: {
+        message: 'Failed to retrieve post!',
+        post: {},
+        post_creator: {}
+      }
+    end
   end
 
   def create

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'api/login', to: 'sessions#login'
   delete 'api/logout', to: 'sessions#logout'
   get 'api/logged_in', to: 'sessions#logged_in'
+  get 'api/user/:id', to: 'users#show'
   get 'api/posts', to: 'posts#index'
   post 'api/create_post', to: 'posts#create'
   get 'api/post/:id', to: 'posts#show'
