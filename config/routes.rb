@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'api/posts', to: 'posts#index'
   post 'api/create_post', to: 'posts#create'
   get 'api/post/:id', to: 'posts#show'
+  post 'api/create_comment', to: 'comments#create'
 
   get '*path', to: 'static#index'
 end

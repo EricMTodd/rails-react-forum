@@ -25,7 +25,7 @@ const Main = (props) => {
         <Route path='/login' element={<Login handleLogin={handleLogin} />} />
         <Route path='/user/:id' element={<Profile user={user} />} />
         <Route path='/posts/new' element={<NewPost user={user} />} />
-        <Route path='/post/:id' element={<ShowPost />} />
+        <Route path='/post/:id' element={<ShowPost loggedIn={loggedIn} user={user} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </main>
