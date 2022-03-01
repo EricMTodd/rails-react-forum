@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Show = (props) => {
@@ -10,6 +10,8 @@ const Show = (props) => {
   const [post, setPost] = useState({})
   const [postCreator, setPostCreator] = useState({})
   const [body, setBody] = useState('')
+  const [comments, setComments] = useState([])
+  const navigate = useNavigate()
   const params = useParams()
 
   useEffect(() => {
@@ -17,6 +19,7 @@ const Show = (props) => {
     .then(response => {
       setPost(response.data.post)
       setPostCreator(response.data.post_creator)
+      setComments(response.data.comments)
     })
     .catch(error => console.log(error))
   }, [])
@@ -32,7 +35,7 @@ const Show = (props) => {
       }
     })
     .then(response => {
-      console.log(response)
+      window.location.reload()
     })
     .catch(error => console.log(error))
   }
@@ -52,6 +55,9 @@ const Show = (props) => {
           <br />
           <button type='submit'>Submit</button>
         </form>
+        <ul>
+          {comments.map(comment => <li key={comment.id}>{comment.body}</li>)}
+        </ul>
       </div>
     )
   }
@@ -61,6 +67,10 @@ const Show = (props) => {
       <h1>{post.title}</h1>
       <small><Link to={`/user/${postCreator.id}`}>{postCreator.name}</Link></small>
       <p>{post.body}</p>
+      <h2>Comments</h2>
+      <ul>
+        {comments.map(comment => <li key={comment.id}>{comment.body}</li>)}
+      </ul>
     </div>
   )
 }
