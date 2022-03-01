@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       render json: {
         message: 'Successfully retrieved post.',
         post: post,
-        post_creator: post_creator ,
+        post_creator: post_creator,
         comments: post.comments
       }
     else
