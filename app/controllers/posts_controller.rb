@@ -16,7 +16,7 @@ class PostsController < ApplicationController
         message: 'Successfully retrieved post.',
         post: post,
         post_creator: post_creator,
-        comments: post.comments
+        comments: post.comments.where(parent_id: nil)
       }
     else
       render json: {

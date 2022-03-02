@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { Show as ShowComment } from '../comments/Show'
 
 const Show = (props) => {
   const {
@@ -11,7 +12,6 @@ const Show = (props) => {
   const [postCreator, setPostCreator] = useState({})
   const [body, setBody] = useState('')
   const [comments, setComments] = useState([])
-  const navigate = useNavigate()
   const params = useParams()
 
   useEffect(() => {
@@ -69,7 +69,7 @@ const Show = (props) => {
       <p>{post.body}</p>
       <h2>Comments</h2>
       <ul>
-        {comments.map(comment => <li key={comment.id}>{comment.body}</li>)}
+        {comments.map(comment => <li key={comment.id}><ShowComment comment={comment} /></li>)}
       </ul>
     </div>
   )

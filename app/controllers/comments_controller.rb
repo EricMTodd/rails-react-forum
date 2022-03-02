@@ -15,6 +15,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def show
+    render json: {
+      message: 'haha comments go brrrrrrrrrr'
+    }
+  end
+
   private
 
   def comment_params
