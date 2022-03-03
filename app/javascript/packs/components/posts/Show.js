@@ -12,6 +12,11 @@ const Show = (props) => {
   const [postCreator, setPostCreator] = useState({})
   const [body, setBody] = useState('')
   const [comments, setComments] = useState([])
+  const rootComments = comments.filter(comment => comment.parent_id === null)
+
+  const getReplies = commentId => {
+    return comments.filter(comment => comment.parent_id === commentId)
+  }
   const params = useParams()
 
   useEffect(() => {
@@ -69,7 +74,7 @@ const Show = (props) => {
       <p>{post.body}</p>
       <h2>Comments</h2>
       <ul>
-        {comments.map(comment => <li key={comment.id}><ShowComment comment={comment} /></li>)}
+        {rootComments.map(comment => <li key={comment.id}><ShowComment comment={comment} replies={getReplies(comment.id)} /></li>)}
       </ul>
     </div>
   )
