@@ -8,12 +8,7 @@ const Show = (props) => {
 
   return(
     <div id='show-comment'>
-      {comment.body}
-      {replies.length > 0 && (
-        <div className='replies'>
-          {replies.map(reply => <Show comment={reply} replies={[]} />)}
-        </div>
-      )}
+      
     </div>
   )
 }
