@@ -70,7 +70,7 @@ const Show = (props) => {
       <p>{post.body}</p>
       <h2>Comments</h2>
       <ul>
-        {rootComments.map(comment => <li>{comment.body}</li>)}
+        {rootComments.map(comment => <ShowComment key={comment.id} comments={comments} comment={comment} />)}
       </ul>
     </div>
   )
