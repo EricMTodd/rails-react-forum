@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
-const Form = () => {
+const Form = (props) => {
+  const {
+    post,
+    user
+  } = props
   const [body, setBody] = useState('')
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -9,7 +14,8 @@ const Form = () => {
       comment: {
         body: body,
         post_id: post.id,
-        user_id: user.id
+        user_id: user.id,
+        username: user.name
       }
     })
     .then(response => {

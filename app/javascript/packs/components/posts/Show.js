@@ -35,7 +35,7 @@ const Show = (props) => {
         <small><Link to={`/user/${postCreator.id}`}>{postCreator.name}</Link></small>
         <p>{post.body}</p>
         <h2>Comment on this post</h2>
-        <CommentForm />
+        <CommentForm post={post} user={user}/>
         <h2>Comments</h2>
         <ul>
           {rootComments.map(comment => <ShowComment key={comment.id} comments={comments} comment={comment} />)}
