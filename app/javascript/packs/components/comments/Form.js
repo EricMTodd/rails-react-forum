@@ -4,9 +4,11 @@ import axios from 'axios'
 const Form = (props) => {
   const {
     post,
-    user
+    user,
+    comment
   } = props
   const [body, setBody] = useState('')
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('handleSubmit')
@@ -15,7 +17,7 @@ const Form = (props) => {
         body: body,
         post_id: post.id,
         user_id: user.id,
-        username: user.name
+        username: user.name,
       }
     })
     .then(response => {

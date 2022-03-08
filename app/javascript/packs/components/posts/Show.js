@@ -38,7 +38,7 @@ const Show = (props) => {
         <CommentForm post={post} user={user}/>
         <h2>Comments</h2>
         <ul>
-          {rootComments.map(comment => <ShowComment key={comment.id} comments={comments} comment={comment} />)}
+          {rootComments.map(comment => <ShowComment key={comment.id} comments={comments} comment={comment} post={post} user={user} />)}
         </ul>
       </div>
     )

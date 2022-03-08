@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Form as CommentForm } from './Form.js'
 
 const Show = (props) => {
   const {
@@ -11,6 +12,7 @@ const Show = (props) => {
   return(
     <div className='show-comment'>
       {comment.body}
+      <CommentForm comment={comment} />
       <br />
       <small><Link to={`/user/${comment.user_id}`}>{comment.username}</Link></small>
       {replies.map(reply => <Show key={reply.id} comments={comments} comment={reply} />)}
