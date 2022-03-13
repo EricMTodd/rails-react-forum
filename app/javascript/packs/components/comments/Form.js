@@ -11,19 +11,34 @@ const Form = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('handleSubmit')
-    axios.post('http://localhost:3000/api/create_comment', {
-      comment: {
-        body: body,
-        post_id: post.id,
-        user_id: user.id,
-        username: user.name,
-      }
-    })
-    .then(response => {
-      window.location.reload()
-    })
-    .catch(error => console.log(error))
+    if (comment === undefined){
+      axios.post('http://localhost:3000/api/create_comment', {
+        comment: {
+          body: body,
+          post_id: post.id,
+          user_id: user.id,
+          username: user.name,
+        }
+      })
+      .then(response => {
+        window.location.reload()
+      })
+      .catch(error => console.log(error))
+    } else {
+      axios.post('http://localhost:3000/api/create_comment', {
+        comment: {
+          body: body,
+          parent_id: comment.id,
+          post_id: post.id,
+          user_id: user.id,
+          username: user.name,
+        }
+      })
+      .then(response => {
+        window.location.reload()
+      })
+      .catch(error => console.log(error))
+    }
   }
 
   return(

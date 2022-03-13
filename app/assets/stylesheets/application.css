@@ -36,6 +36,7 @@
     height: calc(100vh - 75px);
     padding-left: calc(33.333% / 2);
     padding-right: calc(33.333% / 2);
+    overflow-x: scroll;
   }
 
   nav {
