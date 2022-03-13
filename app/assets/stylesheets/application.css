@@ -58,6 +58,11 @@
   }
 
   /* Class styles */
+
+  .comment-form {
+    display: none;
+  }
+
   .show-comment {
     padding: 5px;
     padding-left: 10px;
@@ -65,4 +70,7 @@
   }
 
   /* ID styles */
+  #top-level-comment-form > * {
+    display: block;
+  }
 }

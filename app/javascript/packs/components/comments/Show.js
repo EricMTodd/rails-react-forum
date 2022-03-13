@@ -6,18 +6,42 @@ const Show = (props) => {
   const {
     comments,
     comment,
+    loggedIn,
     post,
     user
   } = props
   const replies = comments.filter(reply => reply.parent_id === comment.id)
 
+  const toggleCommentForm = (e) => {
+    let commentForm = e.target.nextSibling
+    if (commentForm.style.display === "") {
+      commentForm.style.display = "block"
+    } else {
+      commentForm.style.display = ""
+    }
+  }
+
+  if (loggedIn) {
+    return(
+      <div className='show-comment'>
+        {comment.body}
+        <br />
+        <button type='button' onClick={e => toggleCommentForm(e)} >reply</button>
+        <CommentForm comments={comments} comment={comment} loggedIn={loggedIn} post={post} user={user} />
+        <br />
+        <small><Link to={`/user/${comment.user_id}`}>{comment.username}</Link></small>
+        {replies.map(reply => <Show key={reply.id} comments={comments} comment={reply} loggedIn={loggedIn} post={post} user={user} />)}
+      </div>
+    )
+  }
+
   return(
     <div className='show-comment'>
       {comment.body}
-      <CommentForm comments={comments} comment={comment} post={post} user={user} />
+      <br />
       <br />
       <small><Link to={`/user/${comment.user_id}`}>{comment.username}</Link></small>
-      {replies.map(reply => <Show key={reply.id} comments={comments} comment={reply} />)}
+      {replies.map(reply => <Show key={reply.id} comments={comments} comment={reply} loggedIn={loggedIn} post={post} user={user} />)}
     </div>
   )
 }
