@@ -87,7 +87,7 @@
 
   #logout-button:hover {
     color: white;
-    background-color: black;
+    background-color: rgba(50, 50, 50, 1);
   }
 
   #top-level-comment-form > * {

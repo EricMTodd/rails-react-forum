@@ -44,6 +44,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find_by(id: params[:id])
+    post.destroy
+
+    render json: {
+      message: 'Message successfully destroyed.'
+    }
+  end
+
   private
 
   def post_params
