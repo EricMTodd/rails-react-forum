@@ -63,6 +63,16 @@
     display: none;
   }
 
+  .reply-button {
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  .reply-button:hover {
+    text-decoration: underline;
+  }
+
   .show-comment {
     padding: 5px;
     padding-left: 10px;
