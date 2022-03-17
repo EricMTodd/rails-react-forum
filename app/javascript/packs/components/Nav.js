@@ -16,7 +16,7 @@ const Nav = (props) => {
         </div>
         <div id='session-links'>
           <Link to={`/user/${user.id}`}>{user.name}</Link>
-          <button type='button' onClick={() => handleLogout()}>Log out</button>
+          <button type='button' onClick={() => handleLogout()} id='logout-button'>Log out</button>
         </div>
       </nav>
     )

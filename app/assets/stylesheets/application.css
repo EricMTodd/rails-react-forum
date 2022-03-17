@@ -80,6 +80,16 @@
   }
 
   /* ID styles */
+  #logout-button {
+    border-radius: 25px;
+    padding: 6px 20px 6px 20px;
+  }
+
+  #logout-button:hover {
+    color: white;
+    background-color: black;
+  }
+
   #top-level-comment-form > * {
     display: block;
   }
