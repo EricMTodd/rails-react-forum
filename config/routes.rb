@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # Users routes
   get 'api/user/:id', to: 'users#show'
+  delete 'api/user/:id/destroy', to: 'users#destroy'
 
   # Posts routes
   get 'api/posts', to: 'posts#index'

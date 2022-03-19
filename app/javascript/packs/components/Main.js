@@ -13,7 +13,8 @@ const Main = (props) => {
   const {
     handleLogin,
     user,
-    loggedIn
+    loggedIn,
+    handleLogout
   } = props
 
   if (loggedIn) {
@@ -23,7 +24,7 @@ const Main = (props) => {
         <Route path='/' element={<PostsIndex loggedIn={loggedIn} />} />
         <Route path='/signup' element={<SignUp handleLogin={handleLogin} />} />
         <Route path='/login' element={<Login handleLogin={handleLogin} />} />
-        <Route path='/user/:id' element={<Profile user={user} />} />
+        <Route path='/user/:id' element={<Profile user={user} loggedIn={loggedIn} handleLogout={handleLogout} />} />
         <Route path='/posts/new' element={<NewPost user={user} />} />
         <Route path='/post/:id' element={<ShowPost loggedIn={loggedIn} user={user} />} />
         <Route path='*' element={<NotFound />} />

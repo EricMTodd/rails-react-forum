@@ -16,4 +16,14 @@ class UsersController < ApplicationController
       }
     end
   end
+
+  def destroy
+    user = User.find_by(id: params[:id])
+    user.destroy
+    reset_session
+
+    render json: {
+      message: 'User successfully destroyed.'
+    }
+  end
 end

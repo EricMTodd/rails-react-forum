@@ -36,7 +36,7 @@ const App = () => {
   return(
     <div id='app'>
       <Nav loggedIn={loggedIn} user={user} handleLogout={handleLogout} />
-      <Main handleLogin={handleLogin} user={user} loggedIn={loggedIn} />
+      <Main handleLogin={handleLogin} user={user} loggedIn={loggedIn} handleLogout={handleLogout} />
       <Footer />
     </div>
   )

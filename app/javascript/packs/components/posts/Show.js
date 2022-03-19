@@ -42,7 +42,7 @@ const Show = (props) => {
         <h1>{post.title}</h1>
         <small><Link to={`/user/${postCreator.id}`}>{postCreator.name}</Link></small>
         <p>{post.body}</p>
-        <button type='button' onClick={() => handleDestroy()}>Delete</button>
+        <small><button type='button' onClick={() => handleDestroy() } className='delete-button'>Delete</button></small>
         <h2>Comment on this post</h2>
         <div id='top-level-comment-form'>
           <CommentForm  post={post} user={user} />

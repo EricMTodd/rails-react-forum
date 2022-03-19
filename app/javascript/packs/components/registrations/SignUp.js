@@ -14,7 +14,6 @@ const SignUp = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('handleSubmit')
     axios.post('http://localhost:3000/api/signup', {
       user: {
         name: name,
@@ -24,7 +23,6 @@ const SignUp = (props) => {
       }
     })
     .then(response => {
-      console.log(response)
       handleLogin(response.data)
       navigate('/')
     })

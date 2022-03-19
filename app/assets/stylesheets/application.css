@@ -63,6 +63,16 @@
     display: none;
   }
 
+  .delete-button {
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  .delete-button:hover {
+    text-decoration: underline;
+  }
+
   .reply-button {
     background: none;
     border: none;
