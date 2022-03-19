@@ -12,7 +12,7 @@ const New = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3000/api/create_post', {
+    axios.post('https://railsreactforum.herokuapp.com/api/create_post', {
       post: {
         title: title,
         body: body,

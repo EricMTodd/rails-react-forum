@@ -14,7 +14,7 @@ const SignUp = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3000/api/signup', {
+    axios.post('https://railsreactforum.herokuapp.com/api/signup', {
       user: {
         name: name,
         email: email,

@@ -16,7 +16,7 @@ const App = () => {
   }
 
   const handleLogout = () => {
-    axios.delete('http://localhost:3000/api/logout')
+    axios.delete('https://railsreactforum.herokuapp.com/api/logout')
     .then(response => {
       setLoggedIn(response.data.loggedIn)
       setUser(response.data.user)
@@ -26,7 +26,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/logged_in')
+    axios.get('https://railsreactforum.herokuapp.com/api/logged_in')
     .then(response => {
       handleLogin(response.data)
     })

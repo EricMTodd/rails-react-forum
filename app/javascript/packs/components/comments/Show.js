@@ -23,7 +23,7 @@ const Show = (props) => {
   }
 
   const handleDestroy = () => {
-    axios.delete(`http://localhost:3000/api/comment/${comment.id}/destroy`)
+    axios.delete(`https://railsreactforum.herokuapp.com/api/comment/${comment.id}/destroy`)
     .then(response => {
       window.location.reload()
     })

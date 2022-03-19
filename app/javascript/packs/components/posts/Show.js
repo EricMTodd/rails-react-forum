@@ -18,7 +18,7 @@ const Show = (props) => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/post/${params.id}`)
+    axios.get(`https://railsreactforum.herokuapp.com/api/post/${params.id}`)
     .then(response => {
       setPost(response.data.post)
       setPostCreator(response.data.post_creator)
@@ -29,7 +29,7 @@ const Show = (props) => {
 
   const handleDestroy = () => {
     console.log('DESTROY')
-    axios.delete(`http://localhost:3000/api/post/${params.id}/destroy`)
+    axios.delete(`https://railsreactforum.herokuapp.com/api/post/${params.id}/destroy`)
     .then(response => {
       navigate('/')
     })

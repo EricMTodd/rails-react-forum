@@ -9,7 +9,7 @@ const Index = (props) => {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/posts')
+    axios.get('https://railsreactforum.herokuapp.com/api/posts')
     .then(response => {
       setPosts(response.data.posts)
     })

@@ -14,7 +14,7 @@ const Profile = (props) => {
   const params = useParams()
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/user/${params.id}`)
+    axios.get(`https://railsreactforum.herokuapp.com/api/user/${params.id}`)
     .then(response => {
       setProfile(response.data.user)
       setPosts(response.data.posts)
@@ -23,7 +23,7 @@ const Profile = (props) => {
   }, [])
 
   const handleDestroy = () => {
-    axios.delete(`http://localhost:3000/api/user/${params.id}/destroy`)
+    axios.delete(`https://railsreactforum.herokuapp.com/api/user/${params.id}/destroy`)
     .then(response => {
       handleLogout()
       navigate('/')

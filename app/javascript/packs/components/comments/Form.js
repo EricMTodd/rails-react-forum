@@ -12,7 +12,7 @@ const Form = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (comment === undefined){
-      axios.post('http://localhost:3000/api/create_comment', {
+      axios.post('https://railsreactforum.herokuapp.com/api/create_comment', {
         comment: {
           body: body,
           post_id: post.id,
@@ -25,7 +25,7 @@ const Form = (props) => {
       })
       .catch(error => console.log(error))
     } else {
-      axios.post('http://localhost:3000/api/create_comment', {
+      axios.post('https://railsreactforum.herokuapp.com/api/create_comment', {
         comment: {
           body: body,
           parent_id: comment.id,
