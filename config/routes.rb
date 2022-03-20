@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'static#index'
+
   # Sessions routes
   post 'api/signup', to: 'registrations#create'
   post 'api/login', to: 'sessions#login'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   post 'api/create_post', to: 'posts#create'
   get 'api/post/:id', to: 'posts#show'
   delete 'api/post/:id/destroy', to: 'posts#destroy'
+  patch 'api/post/:id/update', to: 'posts#update'
 
   # Comments routes
   post 'api/create_comment', to: 'comments#create'

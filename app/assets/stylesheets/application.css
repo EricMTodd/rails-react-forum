@@ -31,6 +31,10 @@
     margin: 0;
   }
 
+  h2 {
+    margin-bottom: 0;
+  }
+
   main {
     background-color: rgba(50, 50, 50, 1);
     height: calc(100vh - 75px);
@@ -63,23 +67,17 @@
     display: none;
   }
 
-  .delete-button {
+  .edit-post-form {
+    display: none;
+  }
+
+  .delete-button, .edit-button, .reply-button {
     background: none;
     border: none;
     color: white;
   }
 
-  .delete-button:hover {
-    text-decoration: underline;
-  }
-
-  .reply-button {
-    background: none;
-    border: none;
-    color: white;
-  }
-
-  .reply-button:hover {
+  .delete-button:hover, .edit-button:hover, .reply-button:hover {
     text-decoration: underline;
   }
 

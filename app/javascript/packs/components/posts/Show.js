@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Show as ShowComment } from '../comments/Show'
+import { Edit as EditPost } from './Edit'
 import { Form as CommentForm } from '../comments/Form'
 
 const Show = (props) => {
@@ -27,6 +28,15 @@ const Show = (props) => {
     .catch(error => console.log(error))
   }, [])
 
+  const toggleEditPostForm = (e) => {
+    const editPostForm = e.target.nextSibling
+    if (editPostForm.style.display === "") {
+      editPostForm.style.display = "block"
+    } else {
+      editPostForm.style.display = ""
+    }
+  }
+
   const handleDestroy = () => {
     console.log('DESTROY')
     axios.delete(`http://localhost:3000/api/post/${params.id}/destroy`)
@@ -42,7 +52,9 @@ const Show = (props) => {
         <h1>{post.title}</h1>
         <small><Link to={`/user/${postCreator.id}`}>{postCreator.name}</Link></small>
         <p>{post.body}</p>
-        <small><button type='button' onClick={() => handleDestroy() } className='delete-button'>Delete</button></small>
+        <button type='button' onClick={() => handleDestroy()} className='delete-button'>Delete</button>|
+        <button type='button' onClick={e => toggleEditPostForm(e)} className='edit-button'>Edit</button>
+        <EditPost post={post} />
         <h2>Comment on this post</h2>
         <div id='top-level-comment-form'>
           <CommentForm  post={post} user={user} />

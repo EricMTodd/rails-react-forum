@@ -43,6 +43,7 @@ const Form = (props) => {
 
   return(
     <div className='comment-form'>
+      <br />
       <form onSubmit={handleSubmit}>
         <label htmlFor='body'>
           <textarea name='body' value={body} onChange={e => setBody(e.target.value)} />

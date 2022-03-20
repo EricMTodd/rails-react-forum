@@ -37,7 +37,7 @@ const Show = (props) => {
         <br />
         <small><Link to={`/user/${comment.user_id}`}>{comment.username}</Link></small>
         <br />
-        <small><button type='button' onClick={() => handleDestroy()} className='delete-button'>Delete</button></small>| 
+        <button type='button' onClick={() => handleDestroy()} className='delete-button'>Delete</button>|
         <button type='button' onClick={e => toggleCommentForm(e)} className='reply-button' >reply</button>
         <CommentForm comments={comments} comment={comment} loggedIn={loggedIn} post={post} user={user} />
         {replies.map(reply => <Show key={reply.id} comments={comments} comment={reply} loggedIn={loggedIn} post={post} user={user} />)}

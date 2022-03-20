@@ -49,7 +49,16 @@ class PostsController < ApplicationController
     post.destroy
 
     render json: {
-      message: 'Message successfully destroyed.'
+      message: 'Post successfully destroyed.'
+    }
+  end
+
+  def update
+    post = Post.find_by(id: params[:id])
+    post.update(post_params)
+
+    render json: {
+      message: 'Post successfully updated.'
     }
   end
 
