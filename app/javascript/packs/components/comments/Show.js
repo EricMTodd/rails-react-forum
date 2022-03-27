@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Form as CommentForm } from './Form.js'
+import { NewCommentForm, EditCommentForm } from './Form.js'
 import axios from 'axios'
 
 const Show = (props) => {
@@ -22,10 +22,6 @@ const Show = (props) => {
     }
   }
 
-  const toggleEditForm = () => {
-    console.log('toggleEditForm')
-  }
-
   const handleDestroy = () => {
     axios.delete(`http://localhost:3000/api/comment/${comment.id}/destroy`)
     .then(response => {
@@ -42,9 +38,10 @@ const Show = (props) => {
         <small><Link to={`/user/${comment.user_id}`}>{comment.username}</Link></small>
         <br />
         <button type='button' onClick={() => handleDestroy()} className='delete-button'>Delete</button>|
-        <button type='button' onClick={() => toggleEditForm()} className='edit-button'>Edit</button>|
+        <button type='button' onClick={e => toggleCommentForm(e)} className='edit-button'>Edit</button>
+        <EditCommentForm comments={comments} comment={comment} loggedIn={loggedIn} post={post} user={user} />|
         <button type='button' onClick={e => toggleCommentForm(e)} className='reply-button' >Reply</button>
-        <CommentForm comments={comments} comment={comment} loggedIn={loggedIn} post={post} user={user} />
+        <NewCommentForm comments={comments} comment={comment} loggedIn={loggedIn} post={post} user={user} />
         {replies.map(reply => <Show key={reply.id} comments={comments} comment={reply} loggedIn={loggedIn} post={post} user={user} />)}
       </div>
     )
@@ -58,7 +55,7 @@ const Show = (props) => {
         <small><Link to={`/user/${comment.user_id}`}>{comment.username}</Link></small>
         <br />
         <button type='button' onClick={e => toggleCommentForm(e)} className='reply-button' >reply</button>
-        <CommentForm comments={comments} comment={comment} loggedIn={loggedIn} post={post} user={user} />
+        <NewCommentForm comments={comments} comment={comment} loggedIn={loggedIn} post={post} user={user} />
         {replies.map(reply => <Show key={reply.id} comments={comments} comment={reply} loggedIn={loggedIn} post={post} user={user} />)}
       </div>
     )

@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Show as ShowComment } from '../comments/Show'
 import { Edit as EditPost } from './Edit'
-import { Form as CommentForm } from '../comments/Form'
+import { NewCommentForm, EditCommentForm } from '../comments/Form'
 
 const Show = (props) => {
   const {
@@ -57,7 +57,7 @@ const Show = (props) => {
         <EditPost post={post} />
         <h2>Comment on this post</h2>
         <div id='top-level-comment-form'>
-          <CommentForm  post={post} user={user} />
+          <NewCommentForm  post={post} user={user} />
         </div>
         <h2>Comments</h2>
         <ul>
@@ -75,7 +75,7 @@ const Show = (props) => {
         <p>{post.body}</p>
         <h2>Comment on this post</h2>
         <div id='top-level-comment-form'>
-          <CommentForm  post={post} user={user} />
+          <NewCommentForm  post={post} user={user} />
         </div>
         <h2>Comments</h2>
         <ul>

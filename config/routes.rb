@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   # Comments routes
   post 'api/create_comment', to: 'comments#create'
   delete 'api/comment/:id/destroy', to: 'comments#destroy'
+  patch 'api/comment/:id/update', to: 'comments#update'
 
   get '*path', to: 'static#index'
 end
