@@ -26,4 +26,23 @@ class UsersController < ApplicationController
       message: 'User successfully destroyed.'
     }
   end
+
+  def update
+    user = User.find_by(id: params[:id])
+    if user.update(user_params) 
+      render json: {
+        message: 'User successfully updated'
+      }
+    else
+      render json: {
+        message: 'Failed to update user!'
+      }
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
 end

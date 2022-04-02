@@ -88,6 +88,10 @@
   }
 
   /* ID styles */
+  #edit-user-form {
+    display: none;
+  }
+
   #logout-button {
     border-radius: 25px;
     padding: 6px 20px 6px 20px;

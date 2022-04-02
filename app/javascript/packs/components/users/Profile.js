@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import EditUserForm from './Form'
 
 const Profile = (props) => {
   const {
@@ -10,6 +11,7 @@ const Profile = (props) => {
   } = props
   const [profile, setProfile] = useState({})
   const [posts, setPosts] = useState([])
+
   const navigate = useNavigate()
   const params = useParams()
 
@@ -31,11 +33,22 @@ const Profile = (props) => {
     .catch(error => console.log(error))
   }
 
+  const toggleEditForm = (e) => {
+    const editUserForm = e.target.nextSibling
+    if (editUserForm.style.display === "") {
+      editUserForm.style.display = "block"
+    } else {
+      editUserForm.style.display = ""
+    }
+  }
+
   if (loggedIn && user.id === profile.id) {
     return(
       <div id='profile'>
         <h1>{profile.name}</h1>
-        <small><button type='button' onClick={() => handleDestroy()} className='delete-button'>Delete</button></small>
+        <button type='button' onClick={() => handleDestroy()} className='delete-button'>Delete</button>|
+        <button type='button' onClick={(e) => toggleEditForm(e)} className='edit-button'>Edit</button>
+        <EditUserForm user={user} />
         <h2>Posts</h2>
         <ul>
           {posts.map(post => <li key={post.id}><Link to={`/post/${post.id}`}>{post.title}</Link></li>)}
